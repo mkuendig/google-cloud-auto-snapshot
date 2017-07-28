@@ -4,8 +4,8 @@
 # ($NOTIFY_COMMAND environment variable), for example a curl webhook
 # notification (e.g. to Slack).
 if [ -z "${SLEEP}" ]; then
-  # Default to every 6 hours
-  SLEEP=21600
+  # Default to every 24 hours
+  SLEEP=84600
 fi
 while true; do
   /opt/google-cloud-auto-snapshot.sh
