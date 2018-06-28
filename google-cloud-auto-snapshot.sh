@@ -9,9 +9,9 @@ done
 # having too many snapshots is unwiedly so this script deletes them after 60 days
 #
 if [[ $(uname) == "Linux" ]]; then
-  from_date=$(date -d "-30 days" "+%Y-%m-%d")
+  from_date=$(date -d "-10 days" "+%Y-%m-%d")
 else
-  from_date=$(date -v -30d "+%Y-%m-%d")
+  from_date=$(date -v -10d "+%Y-%m-%d")
 fi
 gcloud compute snapshots list --filter="creationTimestamp<$from_date" --regexp "(autogcs.*)" --uri | while read SNAPSHOT_URI; do
    gcloud compute snapshots delete $SNAPSHOT_URI -q
